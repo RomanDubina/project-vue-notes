@@ -1,0 +1,464 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+button{
+  outline: none;
+}
+.container{
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
+}
+.header{
+   margin: 20px 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.header__title{
+    font-size: 2.4em;
+    font-weight: bold;
+    line-height: 1.3em;
+    letter-spacing: 1.5em;
+    color: #043768;
+}
+.main__notes{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+.createNotice{
+  background-color: #043768;
+}
+custom-input.q1{
+    width: 200px;
+    min-height: 30px;
+}
+
+.note__btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px;
+    background-color: rgb(110, 126, 141);
+    cursor: pointer;
+}
+.main__notes-note{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    background-color: rgba(247, 230, 134, 0.938);
+    box-shadow: 7px 5px 6px 9px rgba(92, 73, 46, 0.911);
+    margin-bottom: 50px;
+}
+.main__notes-note.note-edit{
+  width: 500px;
+    height: 500px;
+}
+.note__menu{
+    display: flex;
+    justify-content: space-around;
+    margin: 5px auto;
+    opacity: 0;
+    position: relative;
+    visibility: hidden;
+    animation-name: showMenu;
+    transition: 0.6s;
+}
+.main__notes-note:hover>.note__menu{
+     opacity: 1;
+     visibility: visible;
+ }
+.note__menu-edit,
+.note__menu-del{
+    padding: 5px 0;
+  height: 30px;
+    background: rgba(124,124,180,0.84);
+    flex-grow: 1;
+    margin: 0 4px;
+    color: azure;
+    position: relative;
+    cursor: pointer;
+  position: relative;
+}
+.note__menu-edit::before,
+.note__menu-del:before{
+  transition: .3s;
+  font-family: 'icomoon' !important;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 1.5em;
+}
+.note__menu-edit::before{
+  content: "\e905";
+}
+.note__menu-del:before{
+  content: "\e900";
+}
+.note__menu-edit:hover::before{
+  color: #4748ef;
+}
+
+.note__menu-del:hover::before{
+  color: #f50707;
+}
+.note__menu-edit a{
+    text-decoration: none;
+    color: azure;
+    position: absolute;
+    line-height: 1.7em;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.note-edit input{
+  outline: none;
+  border: none;
+}
+.note-edit button{
+  outline: none;
+}
+.note-edit .noticeForm__noteTitle{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 90%;
+  font-size: 1.4em;
+  color: #2c3e50;
+  background-color: rgba(231, 227, 169, 0.87);
+}
+
+.main__notes-note .note__title{
+    text-align: center;
+    padding: 5px;
+    font-size: 1.3em;
+    font-weight: 600;
+    line-height: 1.5em;
+    color: #232323;
+}
+.note-edit__undo-redo{
+  display: flex;
+  padding-left: 15px;
+}
+.note-edit__undo-redo button{
+  width: 26px;
+  height: 26px;
+  margin-right: 20px;
+border: none;
+background-color: transparent;
+position: relative;
+cursor: pointer;
+}
+.note-edit__undo-redo button::before{
+  font-family: 'icomoon' !important;
+  position: absolute;
+  bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.5em;
+}
+.note-edit__undo-redo .note-edit__undo::before{
+  content: "\e965";
+}
+.note-edit__undo-redo .note-edit__redo::before{
+  content: "\e966";
+}
+.note__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 15px;
+
+}
+.note__content-item{
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0;
+    font-size: 1.1em;
+    line-height: 1.3em;
+    color: #232323;
+}
+.note__content-btnAddTask{
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px 0;
+  padding: 5px 0;
+}
+.note__content-btnAddTask button{
+  position: relative;
+  width: 26px;
+    height: 26px;
+}
+.note__content-btnAddTask button::before{
+  content: "\ea0a";
+  font-family: 'icomoon' !important;
+  position: absolute;
+  bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.2em;
+    color: yellowgreen;
+}
+.note__content-btn-save--cencel{
+  display: flex;
+  justify-content: space-around;
+}
+.note__content-btn-save--cencel button[type="submit"]{
+  position: relative;
+  width: 170px;
+    height: 140px;
+}
+.note__content-btn-save--cencel button[type="submit"]::before{
+  content: "\e962";
+  font-family: 'icomoon' !important;
+  position: absolute;
+  bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 7em;
+  color: #759179;
+  transition: .5s;
+}
+.note__content-btn-save--cencel button[type="submit"]:hover::before{
+  color: #5dbb5b;
+}
+.note__content-btn-save--cencel button[type="button"]{
+  position: relative;
+  width: 170px;
+    height: 140px;
+}
+.note__content-btn-save--cencel button[type="button"]::before{
+  content: "\e902";
+  font-family: 'icomoon' !important;
+  position: absolute;
+  bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 7em;
+  color: #759179;
+  transition: .5s;
+}
+.note__content-btn-save--cencel button[type="button"]:hover::before{
+  color: #5dbb5b;
+}
+.note__content-item .item-element{
+  margin-right: 10px;
+}
+.item-element input[type="checkbox"]{
+  width: 26px;
+    height: 26px;
+}
+.item-element input[name="noticeTask"]{
+
+  height: 26px;
+  background-color: rgba(231, 227, 169, 0.87);
+}
+.item-element button[type="button"]{
+  width: 26px;
+    height: 26px;
+  border: none;
+  background-color: transparent;
+
+  position: relative;
+  cursor: pointer;
+}
+.item-element button[type="button"]::before{
+  content: "\e900";
+  font-family: 'icomoon' !important;
+  position: absolute;
+  bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.5em;
+  color: #c90003;
+  transition: 0.9s;
+  font-weight: 500;
+}
+.item-element button[type="button"]:hover::before{
+  color: #ff0003;
+  font-weight: 700;
+}
+.note__content-item span{
+    font-size: 1.5em;
+    font-weight: 800;
+    /* line-height: 1.6em; */
+    /* padding: 4px; */
+    width: 20px;
+    height: 20px;
+    background-color: blanchedalmond;
+    color: chartreuse;
+    cursor: pointer;
+    text-align: center;
+}
+.header__newNote{
+    width: 185px;
+    height: 50px;
+    background-color: rgba(169, 229, 31, 0.89);
+  font-size: 0.8em;
+  color: aliceblue;
+    position: relative;
+    border-radius: 50%;
+
+}
+.header__newNote::before{
+  content: "\e903";
+  font-family: 'icomoon' !important;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-size: 3em;
+}
+.header__newNote a{
+    text-decoration: none;
+    font-size: 1.4em;
+    position: absolute;
+    line-height: 2.6em;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+.modal-footer{
+  display: flex;
+  justify-content: flex-end;
+  min-height: 30px;
+  height: 100%;
+  margin-top: 20px;
+}
+.modal-default-button{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+.modal-default-button.btn-ok {
+  margin-right: 15px;
+  padding: 5px;
+  position: relative;
+  border: none;
+  background: unset;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+.modal-default-button.btn-ok::before{
+  content: "\e901";
+  font-family: 'icomoon' !important;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 1.7em;
+  color: rgba(159, 241, 76, 0.87);
+}
+.modal-default-button.btn-not {
+  margin-right: 15px;
+  padding: 5px;
+  position: relative;
+  border: none;
+  background: unset;
+  cursor: pointer;
+}
+.modal-default-button.btn-not::before{
+  content: "\ea0f";
+  font-family: 'icomoon' !important;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 1.5em;
+  color: rgba(246, 64, 18, 0.87);
+}
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+
+@media (max-width: 850px) {
+  .header{
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__title{
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 850px) {
+
+  .header__title{
+    letter-spacing: 1.2em;
+    padding-left: 40px;
+  }
+}
